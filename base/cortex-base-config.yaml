@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    image:
+      repository: quay.io/cortexproject/cortex
+      tag: v1.1.0
+    schema:
+      configs:
+      - from: 2020-08-01
+        store: cassandra
+        object_store: s3
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: cortex-base-config

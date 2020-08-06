@@ -4,6 +4,11 @@ bases:
 - github.com/SovereignCloudStack/k8s-minio/envs/ci-testing?ref=master
 - github.com/SovereignCloudStack/k8s-cassandra/envs/ci-testing?ref=master
 - github.com/fluxcd/helm-operator/deploy?ref=1.2.0
+
+resources:
+- cortex-config.yaml
+- cortex-credentials.yaml
+
 patchesJSON6902:
 - target:
     group: apps
@@ -16,12 +21,3 @@ patchesJSON6902:
       path: /spec/template/spec/containers/0/args
       value:
         - --enabled-helm-versions=v3
-
-configMapGenerator:
-- name: cortex-config
-  files:
-  - config.yaml
-secretGenerator:
-- name: cortex-credentials
-  files:
-  - credentials.yaml

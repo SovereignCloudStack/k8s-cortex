@@ -1,7 +1,3 @@
 resources:
 - helm-release.yaml
-
-configMapGenerator:
-- name: cortex-base-config
-  files:
-  - config.yaml
+- cortex-base-config.yaml
