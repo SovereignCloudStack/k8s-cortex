@@ -12,8 +12,8 @@ patchesJSON6902:
     name: helm-operator
     namespace: flux
   patch: |-
-  - op: replace
-    path: /spec/template/spec/containers/0/args
-    value:
-      - --enabled-helm-versions=v3
+    - op: replace
+      path: /spec/template/spec/containers/0/args
+      value:
+        - --enabled-helm-versions=v3
 
