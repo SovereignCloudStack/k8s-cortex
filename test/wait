@@ -6,6 +6,5 @@ while true
 do
 	kubectl get pods --all-namespaces -o wide
 	kubectl describe nodes
-	kubectl describe pod scylla-cluster-default-default-1-0 || echo 'scylla pod not present yet'
 	sleep 5
 done

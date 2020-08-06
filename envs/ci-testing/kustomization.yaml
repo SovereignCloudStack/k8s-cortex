@@ -1,9 +1,9 @@
 # According to https://docs.fluxcd.io/projects/helm-operator/en/stable/get-started/using-kustomize/
 bases:
 - ../../base
-- github.com/SovereignCloudStack/k8s-minio//envs/ci-testing
-- github.com/SovereignCloudStack/k8s-cassandra//envs/ci-testing
-- github.com/fluxcd/helm-operator//deploy?ref=1.2.0
+- github.com/SovereignCloudStack/k8s-minio/envs/ci-testing?ref=master
+- github.com/SovereignCloudStack/k8s-cassandra/envs/ci-testing?ref=master
+- github.com/fluxcd/helm-operator/deploy?ref=1.2.0
 patchesJSON6902:
 - target:
     group: apps
@@ -17,3 +17,11 @@ patchesJSON6902:
       value:
         - --enabled-helm-versions=v3
 
+configMapGenerator:
+- name: cortex-config
+  files:
+  - config.yaml
+secretGenerator:
+- name: cortex-credentials
+  files:
+  - credentials.yaml

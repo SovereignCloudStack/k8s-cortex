@@ -1,0 +1,19 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: cortex
+spec:
+  chart:
+    git: https://github.com/cortexproject/cortex-helm-chart.git
+    path: .
+  wait: true
+  valuesFrom:
+  - configMapKeyRef:
+      name: cortex-base-config
+      key: config.yaml
+  - configMapKeyRef:
+      name: cortex-config
+      key: config.yaml
+  - secretKeyRef:
+      name: cortex-credentials
+      key: credentials.yaml

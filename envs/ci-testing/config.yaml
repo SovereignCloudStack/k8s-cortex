@@ -1,0 +1,31 @@
+alertmanager:
+  replicas: 1
+distributor:
+  replicas: 1
+ingester:
+  replicas: 1
+ruler:
+  replicas: 1
+querier:
+  replicas: 1
+query_frontend:
+  replicas: 1
+table_manager:
+  replicas: 1
+configs:
+  replicas: 1
+nginx:
+  replicas: 1
+
+config:
+  storage:
+    cassandra:
+      addresses: simple-cluster-client.scylla.svc
+      port: 9042
+      keyspace: cortex
+      connect_timeout: 15s
+      timeout: 15s
+    s3:
+      endpoint: minio:9000
+      bucketnames: cortex
+      insecure: true
