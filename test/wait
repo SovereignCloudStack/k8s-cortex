@@ -2,9 +2,13 @@
 
 set -ex
 
+sleep 5
+
+kubectl describe nodes
+
 while true
 do
 	kubectl get pods --all-namespaces -o wide
-	kubectl describe nodes
+	kubectl describe pods scylla-cluster-default-default-1-0
 	sleep 5
 done

@@ -42,3 +42,6 @@ jobs:
     - name: Fetch fluxcd logs
       if: ${{ always() }}
       run: kubectl logs -n flux deploy/flux
+    - name: Fetch helm-operator logs
+      if: ${{ always() }}
+      run: kubectl logs -n flux deploy/helm-operator
