@@ -5,5 +5,6 @@ set -ex
 while true
 do
 	kubectl get pods --all-namespaces -o wide
+	kubectl describe nodes
 	sleep 5
 done
