@@ -1,5 +1,4 @@
 resources:
 - consul.yaml
 - cortex.yaml
-- cortex-upstream-default-config.yaml
 - cortex-common-config.yaml
