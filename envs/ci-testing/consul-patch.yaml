@@ -1,0 +1,9 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: consul
+spec:
+  values:
+    server:
+      replicas: 1
+      bootstrapExpect: 1

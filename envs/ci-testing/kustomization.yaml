@@ -9,6 +9,9 @@ resources:
 - cortex-config.yaml
 - cortex-credentials.yaml
 
+patches:
+- consul-patch.yaml
+
 patchesJSON6902:
 - target:
     group: apps

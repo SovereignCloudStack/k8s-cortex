@@ -8,7 +8,7 @@ data:
       configs:
       - from: 2020-08-01
         store: cassandra
-        object_store: s3
+        object_store: cassandra
 kind: ConfigMap
 metadata:
   creationTimestamp: null
