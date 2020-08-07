@@ -1,5 +1,7 @@
 #!/bin/bash
 
+kubectl get event --watch &
+
 until [[ "$(kubectl get helmrelease cortex '--output=go-template={{.status.releaseName}}')" = "cortex" ]]
 do
 	sleep 1
