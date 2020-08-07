@@ -9,6 +9,9 @@ spec:
   wait: true
   valuesFrom:
   - configMapKeyRef:
+      name: cortex-upstream-default-config
+      key: config.yaml
+  - configMapKeyRef:
       name: cortex-base-config
       key: config.yaml
   - configMapKeyRef:

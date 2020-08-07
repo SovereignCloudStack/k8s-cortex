@@ -1,3 +1,4 @@
 resources:
 - helm-release.yaml
-- cortex-base-config.yaml
+- cortex-upstream-default-config.yaml
+- cortex-common-config.yaml
