@@ -1,14 +1,10 @@
 #!/bin/bash
 
+until [[ "$(kubectl get helmrelease cortex '--output=go-template={{.status.releaseName}}')" = "cortex" ]]
+do
+	sleep 1
+done
+
 set -ex
 
-sleep 5
-
-kubectl describe nodes
-
-while true
-do
-	kubectl get pods --all-namespaces -o wide
-	kubectl describe pods scylla-cluster-default-default-1-0 || echo 'scylla pod not yet present'
-	sleep 5
-done
+kubectl wait helmrelease cortex --for=condition=Deployed
