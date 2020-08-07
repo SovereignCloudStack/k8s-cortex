@@ -8,7 +8,7 @@ cd /opt/workdir
 go get -v github.com/m3db/prometheus_remote_client_golang/cmd/promremotecli
 /go/bin/promremotecli -u http://default-cortex-distributor/api/prom/push -t=__name__:some_metric -t=some_label:some_label_value -d=1596816059,123
 OUTPUT="\$(curl 'default-cortex-querier/api/prom/api/v1/query?query=some_metric&time=1596816059')"
-[[ "\$OUTPUT" = '{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"some_metric","some_label":"some_label_value"},"value":[1596816059,"123"]}]}}' ]]
+[[ "\$OUTPUT" = '{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"some_metric","some_label":"some_label_value"},"value":[1596816059,"123"]}]}}' ]] || exit 1
 EOF
 
-kubectl run -it --rm --restart=Never --image=golang:1.14.7 health-check -- bash -c "$(cat script.sh)"
+kubectl run -i --rm --restart=Never --image=golang:1.14.7 --command health-check -- bash -c "$(cat script.sh)"
