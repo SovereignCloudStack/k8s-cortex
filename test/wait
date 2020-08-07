@@ -5,3 +5,4 @@ kubectl get event --watch &
 set -ex
 
 kubectl wait helmrelease cortex --for=condition=Deployed
+kubectl wait deployments.apps default-cortex-ingester --for=condition=Available
