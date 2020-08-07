@@ -12,7 +12,7 @@ spec:
       name: cortex-upstream-default-config
       key: config.yaml
   - configMapKeyRef:
-      name: cortex-base-config
+      name: cortex-common-config
       key: config.yaml
   - configMapKeyRef:
       name: cortex-config
