@@ -9,7 +9,7 @@ cd /opt/workdir
 apk add --no-cache git build-base jq curl
 go get -v github.com/m3db/prometheus_remote_client_golang/cmd/promremotecli
 /go/bin/promremotecli -u http://default-cortex-distributor/api/prom/push -t=__name__:some_metric -t=some_label:some_label_value -d=now,123
-[[ "\$(curl 'default-cortex-querier/api/prom/api/v1/query?query=some_metric' | jq '.data.result[0].value[1]')" = '"1234"' ]] || exit 1
+[[ "\$(curl 'default-cortex-querier/api/prom/api/v1/query?query=some_metric' | jq '.data.result[0].value[1]')" = '"123"' ]] || exit 1
 EOF
 
 kubectl run -i --rm --restart=Never --image=golang:1.14.7-alpine --command health-check -- sh -c "$(cat script.sh)"
