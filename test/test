@@ -3,6 +3,7 @@
 set -ex
 
 cat - > script.sh <<EOF
+set -ex
 mkdir -p /opt/workdir
 cd /opt/workdir
 go get -v github.com/m3db/prometheus_remote_client_golang/cmd/promremotecli

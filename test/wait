@@ -4,6 +4,9 @@ kubectl get event --watch &
 
 set -ex
 
-kubectl wait helmrelease cortex --for=condition=Deployed
-kubectl wait deployments.apps default-cortex-querier --for=condition=Available
-kubectl wait deployments.apps default-cortex-distributor --for=condition=Available
+kubectl wait helmrelease cortex --for=condition=Deployed --timeout=10m
+
+until [[ "$(kubectl get deploy '--output=go-template={{range .items}}{{if not .status.readyReplicas}}{{.metadata.name}} {{end}}{{end}}')" = "" ]]
+do
+	sleep 10
+done
