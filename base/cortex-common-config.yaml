@@ -3,12 +3,17 @@ data:
   config.yaml: |
     image:
       repository: quay.io/cortexproject/cortex
-      tag: v1.1.0
-    schema:
-      configs:
-      - from: 2020-08-01
-        store: cassandra
-        object_store: cassandra
+      tag: v1.3.0-rc.2
+    config:
+      schema:
+        configs:
+        - from: 2020-08-01
+          store: cassandra
+          object_store: aws
+          schema: v10
+          index:
+            prefix: index_
+            period: 168h
 kind: ConfigMap
 metadata:
   creationTimestamp: null

@@ -28,6 +28,10 @@ data:
           keyspace: cortex
           connect_timeout: 15s
           timeout: 15s
+        aws:
+          endpoint: minio-service:9000
+          insecure: true
+          bucketnames: cortex
 kind: ConfigMap
 metadata:
   creationTimestamp: null
