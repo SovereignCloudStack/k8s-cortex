@@ -6,7 +6,7 @@ spec:
   chart:
     git: https://github.com/cortexproject/cortex-helm-chart.git
     path: .
-    ref: 0.1.2
+    ref: 7b56da018b990fbe292c0a676ce553f0a91bd135
   wait: true
   valuesFrom:
   - configMapKeyRef:
