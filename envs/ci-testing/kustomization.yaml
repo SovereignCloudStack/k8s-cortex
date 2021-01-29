@@ -10,7 +10,7 @@ resources:
 - cortex-credentials.yaml
 
 patches:
-- consul-patch.yaml
+- path: consul-patch.yaml
 
 patchesJSON6902:
 - target:
